@@ -1122,7 +1122,7 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
 
     st.dataframe(styled_df, use_container_width=True, hide_index=True)
 
-    sig_count = sum(results_df['Significant?'] == '✅ Yes')
+    sig_count = sum(results_df['Significant?'] == 'Yes')
     total_count = len(results_df)
 
     if sig_count > 0:
@@ -1451,7 +1451,7 @@ else:
     BASE_DIR = detect_base_dir()
 
     if BASE_DIR is None:
-        st.error("❌ No Functions_* folder found in current directory.")
+        st.error("No Functions_* folder found in current directory.")
         st.info("""
         **Expected structure:**
         ```
@@ -1481,7 +1481,7 @@ else:
     }
 
     if not any(data_status.values()):
-        st.error("❌ No data found!")
+        st.error("No data found!")
         st.write("**Data Status:**")
         for key, status in data_status.items():
             st.write(f"- {key}: {'✅' if status else '❌'}")
