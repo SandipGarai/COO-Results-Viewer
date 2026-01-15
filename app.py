@@ -12,7 +12,7 @@ from scipy.stats import wilcoxon
 # ========================================
 # Page config
 # ========================================
-st.set_page_config(layout="wide", page_title="COO Results Viewer")
+st.set_page_config(layout="wide", page_title="COO & ANN Results Viewer")
 
 # ========================================
 # Configuration
@@ -530,6 +530,19 @@ def load_benchmark_data(base_dir: Path):
                 df["variant"] = parsed.map(lambda x: x[1])
                 df["seed"] = pd.to_numeric(df["seed"], errors="coerce")
 
+                # Filter extreme values globally (overflow/underflow)
+                # This removes rows where best_value or time_sec have extreme values
+                original_len = len(df)
+                df = df[df['best_value'].apply(
+                    lambda x: np.isfinite(x) and abs(x) < 1e15)]
+                df = df[df['time_sec'].apply(
+                    lambda x: np.isfinite(x) and abs(x) < 1e15)]
+                filtered_count = original_len - len(df)
+
+                if filtered_count > 0:
+                    st.sidebar.warning(
+                        f"⚠️ Filtered {filtered_count} rows with extreme values (|value| > 1e15)")
+
                 # Calculate Efficiency Score - DIRECT multiplication (same as ANN)
                 # Formula: efficiency = best_value * time_sec
                 # Lower is better (fast + accurate = low score)
@@ -595,7 +608,7 @@ def display_ann_convergence_page(df):
     selected_seed = st.sidebar.selectbox("Select Seed", seed_options)
 
     st.sidebar.markdown("---")
-    st.sidebar.subheader("View Mode")
+    st.sidebar.subheader("📊 View Mode")
     view_mode = st.sidebar.radio(
         "Display Type",
         ["Convergence History", "Optimum Parameters", "Both"]
@@ -705,7 +718,7 @@ def display_ann_convergence_page(df):
                 col1, col2 = st.columns(2)
 
                 with col1:
-                    st.markdown("**📊 Performance Metrics**")
+                    st.markdown("**Performance Metrics**")
                     metrics_data = {
                         'Metric': ['MSE', 'Time (seconds)', 'Evaluations', 'Status'],
                         'Value': [
@@ -741,7 +754,7 @@ def display_ann_convergence_page(df):
                                  use_container_width=True, hide_index=True)
 
                 with col2:
-                    st.markdown("**🔧 Decoded ANN Hyperparameters**")
+                    st.markdown("**Decoded ANN Hyperparameters**")
                     best_pos = parse_best_pos(row['best_pos'])
                     if len(best_pos) == 10:  # Must be 10-dimensional
                         # Decode the vector to actual hyperparameters
@@ -1067,7 +1080,7 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
                 'Competitor': competitor,
                 'Statistic': statistic if statistic is not None else 'N/A',
                 'p-value': p_value if p_value is not None else 1.0,
-                'Significant?': '✅ Yes' if (p_value is not None and p_value < 0.05) else '❌ No',
+                'Significant?': 'Yes' if (p_value is not None and p_value < 0.05) else 'No',
                 "Cohen's d": d,
                 'Effect Size': interpret_effect_size(d)
             })
@@ -1109,7 +1122,7 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
 
     st.dataframe(styled_df, use_container_width=True, hide_index=True)
 
-    sig_count = sum(results_df['Significant?'] == 'Yes')
+    sig_count = sum(results_df['Significant?'] == '✅ Yes')
     total_count = len(results_df)
 
     if sig_count > 0:
@@ -1389,7 +1402,7 @@ def display_ann_ranking(df, metric, metric_label, scope_title):
 # Main App Navigation
 # ========================================
 
-st.title("COO Results Viewer")
+st.title("COO & ANN Results Viewer")
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
@@ -1438,7 +1451,7 @@ else:
     BASE_DIR = detect_base_dir()
 
     if BASE_DIR is None:
-        st.error("No Functions_* folder found in current directory.")
+        st.error("❌ No Functions_* folder found in current directory.")
         st.info("""
         **Expected structure:**
         ```
@@ -1468,13 +1481,13 @@ else:
     }
 
     if not any(data_status.values()):
-        st.error("No data found!")
+        st.error("❌ No data found!")
         st.write("**Data Status:**")
         for key, status in data_status.items():
             st.write(f"- {key}: {'✅' if status else '❌'}")
         st.stop()
 
-    with st.sidebar.expander("Data Status"):
+    with st.sidebar.expander("📊 Data Status"):
         for key, status in data_status.items():
             st.write(f"{'✅' if status else '❌'} {key}")
 
@@ -2062,7 +2075,7 @@ else:
         # Win/Tie/Loss Analysis
         elif analysis_type == "Win/Tie/Loss Analysis":
             st.subheader(
-                f"Win/Tie/Loss: {baseline} vs Others ({scope_title})")
+                f"⚔️ Win/Tie/Loss: {baseline} vs Others ({scope_title})")
 
             wtl_results = win_tie_loss_analysis(filtered_df, baseline, metric)
 
@@ -2166,7 +2179,7 @@ else:
         # Pairwise Comparison
         elif analysis_type == "Pairwise Comparison":
             st.subheader(
-                f"Pairwise Statistical Tests: {baseline} vs Others ({scope_title})")
+                f"🔬 Pairwise Statistical Tests: {baseline} vs Others ({scope_title})")
 
             st.markdown("""
             **Wilcoxon Signed-Rank Test**: Tests if there is a significant difference between paired samples.
@@ -2228,11 +2241,22 @@ else:
                     return 'background-color: #FFB6C6; color: black'
                 return 'background-color: white; color: black'
 
-            styled_df = results_df.style.format({
-                f'{baseline} Mean': '{:.6e}',
+            # Get dynamic column names for formatting
+            baseline_col = f'{baseline} Mean'
+            format_dict = {
+                baseline_col: '{:.6e}',
                 'p-value': lambda x: f'{x:.6f}' if pd.notna(x) and x < 1.0 else '1.000000',
                 "Cohen's d": '{:.3f}'
-            }).map(highlight_significant, subset=['Significant?']).set_properties(**{
+            }
+            # Add formatting for competitor mean columns
+            for comp in competitors:
+                comp_col = f'{comp} Mean'
+                if comp_col in results_df.columns:
+                    format_dict[comp_col] = '{:.6e}'
+
+            styled_df = results_df.style.format(format_dict).map(
+                highlight_significant, subset=['Significant?']
+            ).set_properties(**{
                 'text-align': 'center',
                 'font-size': '16px',
                 'padding': '12px',
@@ -2430,7 +2454,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(
     """
     <small>
-    <b>COO Results Viewer v5.0</b><br>
+    <b>COO & ANN Viewer v5.0</b><br>
     Developed by  
     <a href="https://scholar.google.com/citations?user=Es-kJk4AAAAJ&hl=en" target="_blank">
         Dr. Sandip Garai
