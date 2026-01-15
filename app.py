@@ -1487,7 +1487,7 @@ else:
             st.write(f"- {key}: {'✅' if status else '❌'}")
         st.stop()
 
-    with st.sidebar.expander("📊 Data Status"):
+    with st.sidebar.expander("Data Status"):
         for key, status in data_status.items():
             st.write(f"{'✅' if status else '❌'} {key}")
 
