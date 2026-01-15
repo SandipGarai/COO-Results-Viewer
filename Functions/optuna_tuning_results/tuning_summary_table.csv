@@ -1,0 +1,121 @@
+Optimizer,Function,Params,Trials_File
+COO,Sphere,"{'n_packs': 2, 'init_pack_size': 19, 'grad_refinement_pct': 0.08483601103466931, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 298}",trials_coo_Sphere.csv
+COO,Sphere_Shifted,"{'n_packs': 4, 'init_pack_size': 10, 'grad_refinement_pct': 0.07438678293867279, 'use_gradient': False, 'surrogate_enabled': False, 'max_iterations': 216}",trials_coo_Sphere_Shifted.csv
+COO,Sphere_Rotated,"{'n_packs': 4, 'init_pack_size': 15, 'grad_refinement_pct': 0.16595651360085367, 'use_gradient': True, 'surrogate_enabled': False, 'max_iterations': 351}",trials_coo_Sphere_Rotated.csv
+COO,Sphere_ShiftedRotated,"{'n_packs': 6, 'init_pack_size': 22, 'grad_refinement_pct': 0.15298974575565288, 'use_gradient': True, 'surrogate_enabled': False, 'max_iterations': 237}",trials_coo_Sphere_ShiftedRotated.csv
+COO,Rosenbrock,"{'n_packs': 6, 'init_pack_size': 16, 'grad_refinement_pct': 0.11027720261145786, 'use_gradient': False, 'surrogate_enabled': False, 'max_iterations': 342}",trials_coo_Rosenbrock.csv
+COO,Rosenbrock_Shifted,"{'n_packs': 4, 'init_pack_size': 20, 'grad_refinement_pct': 0.14732561292387192, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 245}",trials_coo_Rosenbrock_Shifted.csv
+COO,Rosenbrock_Rotated,"{'n_packs': 2, 'init_pack_size': 17, 'grad_refinement_pct': 0.17697682575521795, 'use_gradient': True, 'surrogate_enabled': False, 'max_iterations': 258}",trials_coo_Rosenbrock_Rotated.csv
+COO,Rosenbrock_ShiftedRotated,"{'n_packs': 4, 'init_pack_size': 20, 'grad_refinement_pct': 0.22389311004913404, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 370}",trials_coo_Rosenbrock_ShiftedRotated.csv
+COO,Rastrigin,"{'n_packs': 6, 'init_pack_size': 18, 'grad_refinement_pct': 0.12732700495714294, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 252}",trials_coo_Rastrigin.csv
+COO,Rastrigin_Shifted,"{'n_packs': 3, 'init_pack_size': 16, 'grad_refinement_pct': 0.21858397481729924, 'use_gradient': False, 'surrogate_enabled': False, 'max_iterations': 301}",trials_coo_Rastrigin_Shifted.csv
+COO,Rastrigin_Rotated,"{'n_packs': 3, 'init_pack_size': 16, 'grad_refinement_pct': 0.16551123587089056, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 222}",trials_coo_Rastrigin_Rotated.csv
+COO,Rastrigin_ShiftedRotated,"{'n_packs': 4, 'init_pack_size': 16, 'grad_refinement_pct': 0.17791662289803012, 'use_gradient': True, 'surrogate_enabled': False, 'max_iterations': 362}",trials_coo_Rastrigin_ShiftedRotated.csv
+COO,Ackley,"{'n_packs': 4, 'init_pack_size': 17, 'grad_refinement_pct': 0.21305256029542516, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 200}",trials_coo_Ackley.csv
+COO,Ackley_Shifted,"{'n_packs': 5, 'init_pack_size': 9, 'grad_refinement_pct': 0.07205719980421305, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 252}",trials_coo_Ackley_Shifted.csv
+COO,Ackley_Rotated,"{'n_packs': 3, 'init_pack_size': 15, 'grad_refinement_pct': 0.16289411494535355, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 313}",trials_coo_Ackley_Rotated.csv
+COO,Ackley_ShiftedRotated,"{'n_packs': 4, 'init_pack_size': 23, 'grad_refinement_pct': 0.0644792626450958, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 338}",trials_coo_Ackley_ShiftedRotated.csv
+COO,Griewank,"{'n_packs': 3, 'init_pack_size': 22, 'grad_refinement_pct': 0.17134148106154928, 'use_gradient': True, 'surrogate_enabled': False, 'max_iterations': 229}",trials_coo_Griewank.csv
+COO,Griewank_Shifted,"{'n_packs': 5, 'init_pack_size': 21, 'grad_refinement_pct': 0.14189761794570882, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 328}",trials_coo_Griewank_Shifted.csv
+COO,Griewank_Rotated,"{'n_packs': 3, 'init_pack_size': 23, 'grad_refinement_pct': 0.06266603016103563, 'use_gradient': False, 'surrogate_enabled': False, 'max_iterations': 249}",trials_coo_Griewank_Rotated.csv
+COO,Griewank_ShiftedRotated,"{'n_packs': 5, 'init_pack_size': 12, 'grad_refinement_pct': 0.06382797879615874, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 359}",trials_coo_Griewank_ShiftedRotated.csv
+COO,Schwefel,"{'n_packs': 5, 'init_pack_size': 13, 'grad_refinement_pct': 0.10338593774763737, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 385}",trials_coo_Schwefel.csv
+COO,Schwefel_Shifted,"{'n_packs': 3, 'init_pack_size': 20, 'grad_refinement_pct': 0.23045102256268762, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 338}",trials_coo_Schwefel_Shifted.csv
+COO,Schwefel_Rotated,"{'n_packs': 5, 'init_pack_size': 9, 'grad_refinement_pct': 0.09611959156142835, 'use_gradient': False, 'surrogate_enabled': True, 'max_iterations': 321}",trials_coo_Schwefel_Rotated.csv
+COO,Schwefel_ShiftedRotated,"{'n_packs': 5, 'init_pack_size': 16, 'grad_refinement_pct': 0.05638281168545239, 'use_gradient': True, 'surrogate_enabled': True, 'max_iterations': 266}",trials_coo_Schwefel_ShiftedRotated.csv
+DE,Sphere,"{'popsize': 11, 'mutation': 0.7080549776292229, 'recombination': 0.4842395946525323}",trials_de_Sphere.csv
+DE,Sphere_Shifted,"{'popsize': 9, 'mutation': 0.4630999664406741, 'recombination': 0.8124307671273308}",trials_de_Sphere_Shifted.csv
+DE,Sphere_Rotated,"{'popsize': 21, 'mutation': 0.3971254956073565, 'recombination': 0.5429260407351513}",trials_de_Sphere_Rotated.csv
+DE,Sphere_ShiftedRotated,"{'popsize': 10, 'mutation': 0.6201667814629708, 'recombination': 0.4731234215712997}",trials_de_Sphere_ShiftedRotated.csv
+DE,Rosenbrock,"{'popsize': 34, 'mutation': 0.35545094734571997, 'recombination': 0.46487838321859654}",trials_de_Rosenbrock.csv
+DE,Rosenbrock_Shifted,"{'popsize': 34, 'mutation': 0.670409025563261, 'recombination': 0.9249121688472751}",trials_de_Rosenbrock_Shifted.csv
+DE,Rosenbrock_Rotated,"{'popsize': 18, 'mutation': 0.44563525804388915, 'recombination': 0.9048001867589878}",trials_de_Rosenbrock_Rotated.csv
+DE,Rosenbrock_ShiftedRotated,"{'popsize': 11, 'mutation': 0.7151560797315915, 'recombination': 0.8023588589003636}",trials_de_Rosenbrock_ShiftedRotated.csv
+DE,Rastrigin,"{'popsize': 10, 'mutation': 0.33493190301651804, 'recombination': 0.56667744234144}",trials_de_Rastrigin.csv
+DE,Rastrigin_Shifted,"{'popsize': 23, 'mutation': 0.8170191539099392, 'recombination': 0.9104326740048546}",trials_de_Rastrigin_Shifted.csv
+DE,Rastrigin_Rotated,"{'popsize': 21, 'mutation': 0.49621057619137576, 'recombination': 0.5437584732335778}",trials_de_Rastrigin_Rotated.csv
+DE,Rastrigin_ShiftedRotated,"{'popsize': 16, 'mutation': 0.33461261138759146, 'recombination': 0.639529264995467}",trials_de_Rastrigin_ShiftedRotated.csv
+DE,Ackley,"{'popsize': 39, 'mutation': 0.5133931774798226, 'recombination': 0.6193135452909359}",trials_de_Ackley.csv
+DE,Ackley_Shifted,"{'popsize': 36, 'mutation': 0.6530531818184069, 'recombination': 0.9412028057457047}",trials_de_Ackley_Shifted.csv
+DE,Ackley_Rotated,"{'popsize': 40, 'mutation': 0.3937702271978782, 'recombination': 0.6074482945450106}",trials_de_Ackley_Rotated.csv
+DE,Ackley_ShiftedRotated,"{'popsize': 33, 'mutation': 0.7595649896481967, 'recombination': 0.8298599503102579}",trials_de_Ackley_ShiftedRotated.csv
+DE,Griewank,"{'popsize': 24, 'mutation': 0.3440073238798256, 'recombination': 0.7548090199313642}",trials_de_Griewank.csv
+DE,Griewank_Shifted,"{'popsize': 9, 'mutation': 0.36125152202474764, 'recombination': 0.4508365009032541}",trials_de_Griewank_Shifted.csv
+DE,Griewank_Rotated,"{'popsize': 23, 'mutation': 0.5771210691327078, 'recombination': 0.45096554327866395}",trials_de_Griewank_Rotated.csv
+DE,Griewank_ShiftedRotated,"{'popsize': 22, 'mutation': 0.552225701731141, 'recombination': 0.5433370783202884}",trials_de_Griewank_ShiftedRotated.csv
+DE,Schwefel,"{'popsize': 37, 'mutation': 0.5687862279160503, 'recombination': 0.48946293135097096}",trials_de_Schwefel.csv
+DE,Schwefel_Shifted,"{'popsize': 37, 'mutation': 0.6161637802542339, 'recombination': 0.8690588155268527}",trials_de_Schwefel_Shifted.csv
+DE,Schwefel_Rotated,"{'popsize': 19, 'mutation': 0.74198037405883, 'recombination': 0.4533243605578272}",trials_de_Schwefel_Rotated.csv
+DE,Schwefel_ShiftedRotated,"{'popsize': 16, 'mutation': 0.7900482783201979, 'recombination': 0.7567412949903065}",trials_de_Schwefel_ShiftedRotated.csv
+PSO,Sphere,"{'n_particles': 23, 'c1': 1.8535575039509413, 'c2': 1.7352131651946812, 'w': 0.33243860942154624}",trials_pso_Sphere.csv
+PSO,Sphere_Shifted,"{'n_particles': 25, 'c1': 0.9603596454368798, 'c2': 1.838675320591444, 'w': 0.3750926411717525}",trials_pso_Sphere_Shifted.csv
+PSO,Sphere_Rotated,"{'n_particles': 50, 'c1': 1.1400692028611348, 'c2': 1.068318497819238, 'w': 0.23412160774961427}",trials_pso_Sphere_Rotated.csv
+PSO,Sphere_ShiftedRotated,"{'n_particles': 20, 'c1': 0.9423279402058039, 'c2': 1.5157601498050357, 'w': 0.5358683187362299}",trials_pso_Sphere_ShiftedRotated.csv
+PSO,Rosenbrock,"{'n_particles': 26, 'c1': 0.5532048312026743, 'c2': 0.5622083090634036, 'w': 0.4121972853233542}",trials_pso_Rosenbrock.csv
+PSO,Rosenbrock_Shifted,"{'n_particles': 55, 'c1': 1.9489414351652095, 'c2': 1.6606211224626166, 'w': 0.45885995216324}",trials_pso_Rosenbrock_Shifted.csv
+PSO,Rosenbrock_Rotated,"{'n_particles': 35, 'c1': 0.9040089820611066, 'c2': 1.7089805121432209, 'w': 0.29273373033057515}",trials_pso_Rosenbrock_Rotated.csv
+PSO,Rosenbrock_ShiftedRotated,"{'n_particles': 31, 'c1': 1.599934609426219, 'c2': 1.2736037637948407, 'w': 0.32342064475506005}",trials_pso_Rosenbrock_ShiftedRotated.csv
+PSO,Rastrigin,"{'n_particles': 23, 'c1': 1.8031340410416383, 'c2': 1.6308543318641333, 'w': 0.5681631180104485}",trials_pso_Rastrigin.csv
+PSO,Rastrigin_Shifted,"{'n_particles': 39, 'c1': 1.5407988264701122, 'c2': 1.7100210671398077, 'w': 0.757564583683114}",trials_pso_Rastrigin_Shifted.csv
+PSO,Rastrigin_Rotated,"{'n_particles': 59, 'c1': 1.0745935399516626, 'c2': 1.2387013790757337, 'w': 0.6114970728687288}",trials_pso_Rastrigin_Rotated.csv
+PSO,Rastrigin_ShiftedRotated,"{'n_particles': 58, 'c1': 1.4476315851364223, 'c2': 0.7155542484846498, 'w': 0.8540149955560077}",trials_pso_Rastrigin_ShiftedRotated.csv
+PSO,Ackley,"{'n_particles': 28, 'c1': 0.5065880619899019, 'c2': 1.1233646111439024, 'w': 0.2296391752110756}",trials_pso_Ackley.csv
+PSO,Ackley_Shifted,"{'n_particles': 24, 'c1': 1.9864352518449069, 'c2': 1.9669830152165364, 'w': 0.3854169682320839}",trials_pso_Ackley_Shifted.csv
+PSO,Ackley_Rotated,"{'n_particles': 57, 'c1': 1.8143760175272803, 'c2': 1.9944366557135433, 'w': 0.3381773963183477}",trials_pso_Ackley_Rotated.csv
+PSO,Ackley_ShiftedRotated,"{'n_particles': 48, 'c1': 0.6054717755242875, 'c2': 0.9734316627090003, 'w': 0.7347385856405708}",trials_pso_Ackley_ShiftedRotated.csv
+PSO,Griewank,"{'n_particles': 22, 'c1': 1.2811418593662185, 'c2': 1.293270455596647, 'w': 0.5605601951936177}",trials_pso_Griewank.csv
+PSO,Griewank_Shifted,"{'n_particles': 52, 'c1': 1.8494460373233679, 'c2': 1.853134469384495, 'w': 0.5962720256185463}",trials_pso_Griewank_Shifted.csv
+PSO,Griewank_Rotated,"{'n_particles': 47, 'c1': 0.7724701217475627, 'c2': 1.4264178211634575, 'w': 0.577645198180753}",trials_pso_Griewank_Rotated.csv
+PSO,Griewank_ShiftedRotated,"{'n_particles': 35, 'c1': 1.385178093157015, 'c2': 1.1704191454946922, 'w': 0.4958249338221553}",trials_pso_Griewank_ShiftedRotated.csv
+PSO,Schwefel,"{'n_particles': 19, 'c1': 1.3590642197819969, 'c2': 1.927355172844929, 'w': 0.8532183721502917}",trials_pso_Schwefel.csv
+PSO,Schwefel_Shifted,"{'n_particles': 47, 'c1': 1.9365548302276379, 'c2': 1.8503338511741059, 'w': 0.810864994634938}",trials_pso_Schwefel_Shifted.csv
+PSO,Schwefel_Rotated,"{'n_particles': 13, 'c1': 0.5849530389731599, 'c2': 1.9851599538264284, 'w': 0.866932195531068}",trials_pso_Schwefel_Rotated.csv
+PSO,Schwefel_ShiftedRotated,"{'n_particles': 58, 'c1': 0.9533059691074575, 'c2': 1.3158259596874928, 'w': 0.6974399008554659}",trials_pso_Schwefel_ShiftedRotated.csv
+GWO,Sphere,"{'n_agents': 32, 'max_iter': 194}",trials_gwo_Sphere.csv
+GWO,Sphere_Shifted,"{'n_agents': 39, 'max_iter': 200}",trials_gwo_Sphere_Shifted.csv
+GWO,Sphere_Rotated,"{'n_agents': 15, 'max_iter': 196}",trials_gwo_Sphere_Rotated.csv
+GWO,Sphere_ShiftedRotated,"{'n_agents': 26, 'max_iter': 66}",trials_gwo_Sphere_ShiftedRotated.csv
+GWO,Rosenbrock,"{'n_agents': 20, 'max_iter': 160}",trials_gwo_Rosenbrock.csv
+GWO,Rosenbrock_Shifted,"{'n_agents': 24, 'max_iter': 147}",trials_gwo_Rosenbrock_Shifted.csv
+GWO,Rosenbrock_Rotated,"{'n_agents': 37, 'max_iter': 85}",trials_gwo_Rosenbrock_Rotated.csv
+GWO,Rosenbrock_ShiftedRotated,"{'n_agents': 31, 'max_iter': 186}",trials_gwo_Rosenbrock_ShiftedRotated.csv
+GWO,Rastrigin,"{'n_agents': 35, 'max_iter': 112}",trials_gwo_Rastrigin.csv
+GWO,Rastrigin_Shifted,"{'n_agents': 25, 'max_iter': 185}",trials_gwo_Rastrigin_Shifted.csv
+GWO,Rastrigin_Rotated,"{'n_agents': 31, 'max_iter': 200}",trials_gwo_Rastrigin_Rotated.csv
+GWO,Rastrigin_ShiftedRotated,"{'n_agents': 22, 'max_iter': 138}",trials_gwo_Rastrigin_ShiftedRotated.csv
+GWO,Ackley,"{'n_agents': 34, 'max_iter': 78}",trials_gwo_Ackley.csv
+GWO,Ackley_Shifted,"{'n_agents': 23, 'max_iter': 87}",trials_gwo_Ackley_Shifted.csv
+GWO,Ackley_Rotated,"{'n_agents': 38, 'max_iter': 113}",trials_gwo_Ackley_Rotated.csv
+GWO,Ackley_ShiftedRotated,"{'n_agents': 21, 'max_iter': 148}",trials_gwo_Ackley_ShiftedRotated.csv
+GWO,Griewank,"{'n_agents': 36, 'max_iter': 144}",trials_gwo_Griewank.csv
+GWO,Griewank_Shifted,"{'n_agents': 38, 'max_iter': 87}",trials_gwo_Griewank_Shifted.csv
+GWO,Griewank_Rotated,"{'n_agents': 35, 'max_iter': 158}",trials_gwo_Griewank_Rotated.csv
+GWO,Griewank_ShiftedRotated,"{'n_agents': 39, 'max_iter': 163}",trials_gwo_Griewank_ShiftedRotated.csv
+GWO,Schwefel,"{'n_agents': 7, 'max_iter': 137}",trials_gwo_Schwefel.csv
+GWO,Schwefel_Shifted,"{'n_agents': 32, 'max_iter': 115}",trials_gwo_Schwefel_Shifted.csv
+GWO,Schwefel_Rotated,"{'n_agents': 38, 'max_iter': 68}",trials_gwo_Schwefel_Rotated.csv
+GWO,Schwefel_ShiftedRotated,"{'n_agents': 39, 'max_iter': 176}",trials_gwo_Schwefel_ShiftedRotated.csv
+WO,Sphere,"{'n_agents': 31, 'max_iter': 119}",trials_wo_Sphere.csv
+WO,Sphere_Shifted,"{'n_agents': 26, 'max_iter': 128}",trials_wo_Sphere_Shifted.csv
+WO,Sphere_Rotated,"{'n_agents': 5, 'max_iter': 159}",trials_wo_Sphere_Rotated.csv
+WO,Sphere_ShiftedRotated,"{'n_agents': 36, 'max_iter': 189}",trials_wo_Sphere_ShiftedRotated.csv
+WO,Rosenbrock,"{'n_agents': 37, 'max_iter': 197}",trials_wo_Rosenbrock.csv
+WO,Rosenbrock_Shifted,"{'n_agents': 38, 'max_iter': 125}",trials_wo_Rosenbrock_Shifted.csv
+WO,Rosenbrock_Rotated,"{'n_agents': 23, 'max_iter': 130}",trials_wo_Rosenbrock_Rotated.csv
+WO,Rosenbrock_ShiftedRotated,"{'n_agents': 20, 'max_iter': 193}",trials_wo_Rosenbrock_ShiftedRotated.csv
+WO,Rastrigin,"{'n_agents': 38, 'max_iter': 113}",trials_wo_Rastrigin.csv
+WO,Rastrigin_Shifted,"{'n_agents': 20, 'max_iter': 192}",trials_wo_Rastrigin_Shifted.csv
+WO,Rastrigin_Rotated,"{'n_agents': 35, 'max_iter': 180}",trials_wo_Rastrigin_Rotated.csv
+WO,Rastrigin_ShiftedRotated,"{'n_agents': 40, 'max_iter': 64}",trials_wo_Rastrigin_ShiftedRotated.csv
+WO,Ackley,"{'n_agents': 5, 'max_iter': 174}",trials_wo_Ackley.csv
+WO,Ackley_Shifted,"{'n_agents': 25, 'max_iter': 108}",trials_wo_Ackley_Shifted.csv
+WO,Ackley_Rotated,"{'n_agents': 36, 'max_iter': 132}",trials_wo_Ackley_Rotated.csv
+WO,Ackley_ShiftedRotated,"{'n_agents': 37, 'max_iter': 181}",trials_wo_Ackley_ShiftedRotated.csv
+WO,Griewank,"{'n_agents': 26, 'max_iter': 186}",trials_wo_Griewank.csv
+WO,Griewank_Shifted,"{'n_agents': 37, 'max_iter': 78}",trials_wo_Griewank_Shifted.csv
+WO,Griewank_Rotated,"{'n_agents': 18, 'max_iter': 179}",trials_wo_Griewank_Rotated.csv
+WO,Griewank_ShiftedRotated,"{'n_agents': 26, 'max_iter': 168}",trials_wo_Griewank_ShiftedRotated.csv
+WO,Schwefel,"{'n_agents': 28, 'max_iter': 176}",trials_wo_Schwefel.csv
+WO,Schwefel_Shifted,"{'n_agents': 15, 'max_iter': 138}",trials_wo_Schwefel_Shifted.csv
+WO,Schwefel_Rotated,"{'n_agents': 36, 'max_iter': 158}",trials_wo_Schwefel_Rotated.csv
+WO,Schwefel_ShiftedRotated,"{'n_agents': 31, 'max_iter': 166}",trials_wo_Schwefel_ShiftedRotated.csv
