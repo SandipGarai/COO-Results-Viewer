@@ -587,7 +587,7 @@ def load_ann_data(csv_file):
 
 def display_ann_convergence_page(df):
     """Display ANN convergence history and optimum parameters page"""
-    st.title("ANN Hyperparameter Optimization - Convergence & Parameters")
+    st.title("🧠 ANN Hyperparameter Optimization - Convergence & Parameters")
 
     # Sidebar controls
     st.sidebar.header("🎛️ Convergence Controls")
@@ -628,13 +628,13 @@ def display_ann_convergence_page(df):
         filtered_df = filtered_df[filtered_df['seed'] == selected_seed]
 
     if len(filtered_df) == 0:
-        st.warning("No data available for the selected filters.")
+        st.warning("⚠️ No data available for the selected filters.")
         return
 
     # Display convergence history
     if view_mode in ["Convergence History", "Both"]:
         st.markdown("---")
-        st.subheader("Convergence History")
+        st.subheader("📈 Convergence History")
 
         # Create dynamic title
         title_parts = []
@@ -703,12 +703,12 @@ def display_ann_convergence_page(df):
                 "ℹ️ **Note:** Absolute values are used for plotting. Extreme outliers (penalty values) are automatically filtered for better visualization.")
         else:
             st.warning(
-                "No convergence history data available for the selected filters. The convergence history may be empty or contain invalid values.")
+                "⚠️ No convergence history data available for the selected filters. The convergence history may be empty or contain invalid values.")
 
     # Display optimum parameters
     if view_mode in ["Optimum Parameters", "Both"]:
         st.markdown("---")
-        st.subheader("Optimum Parameters")
+        st.subheader("🎯 Optimum Parameters")
 
         for idx, row in filtered_df.iterrows():
             # Create expander for each result
@@ -718,7 +718,7 @@ def display_ann_convergence_page(df):
                 col1, col2 = st.columns(2)
 
                 with col1:
-                    st.markdown("**Performance Metrics**")
+                    st.markdown("**📊 Performance Metrics**")
                     metrics_data = {
                         'Metric': ['MSE', 'Time (seconds)', 'Evaluations', 'Status'],
                         'Value': [
@@ -754,7 +754,7 @@ def display_ann_convergence_page(df):
                                  use_container_width=True, hide_index=True)
 
                 with col2:
-                    st.markdown("**Decoded ANN Hyperparameters**")
+                    st.markdown("**🔧 Decoded ANN Hyperparameters**")
                     best_pos = parse_best_pos(row['best_pos'])
                     if len(best_pos) == 10:  # Must be 10-dimensional
                         # Decode the vector to actual hyperparameters
@@ -850,7 +850,7 @@ def display_ann_convergence_page(df):
 
                 # Display optimizer-specific parameters if available
                 if pd.notna(row.get('opt_params', None)) and row['opt_params']:
-                    st.markdown("**Optimizer Configuration**")
+                    st.markdown("**⚙️ Optimizer Configuration**")
                     opt_params = parse_opt_params(row['opt_params'])
                     if opt_params:
                         opt_params_list = []
@@ -887,9 +887,9 @@ def display_ann_convergence_page(df):
 
 def display_ann_statistical_analysis(df):
     """Display ANN statistical analysis page"""
-    st.title("ANN Hyperparameter Optimization - Statistical Analysis")
+    st.title("📊 ANN Hyperparameter Optimization - Statistical Analysis")
 
-    st.sidebar.header("Analysis Controls")
+    st.sidebar.header("🎛️ Analysis Controls")
 
     # Metric selection
     metric = st.sidebar.selectbox(
@@ -941,7 +941,7 @@ def display_ann_statistical_analysis(df):
     st.sidebar.markdown("---")
 
     # Display analysis
-    st.subheader(f"{analysis_type} - {metric_labels[metric]}")
+    st.subheader(f"📈 {analysis_type} - {metric_labels[metric]}")
     st.markdown(f"**Scope:** {scope_title}")
 
     if analysis_type == "Performance Summary":
@@ -1080,7 +1080,7 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
                 'Competitor': competitor,
                 'Statistic': statistic if statistic is not None else 'N/A',
                 'p-value': p_value if p_value is not None else 1.0,
-                'Significant?': 'Yes' if (p_value is not None and p_value < 0.05) else 'No',
+                'Significant?': '✅ Yes' if (p_value is not None and p_value < 0.05) else '❌ No',
                 "Cohen's d": d,
                 'Effect Size': interpret_effect_size(d)
             })
@@ -1088,7 +1088,7 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
     results_df = pd.DataFrame(results).sort_values('p-value')
 
     def highlight_significant(val):
-        if val == 'Yes':
+        if val == '✅ Yes':
             return 'background-color: #90EE90; font-weight: bold; color: black'
         else:
             return 'color: black'
@@ -1127,10 +1127,10 @@ def display_ann_wilcoxon_test(df, metric, metric_label, baseline, scope_title):
 
     if sig_count > 0:
         st.success(
-            f"**{baseline}** shows statistically significant improvement over **{sig_count}/{total_count}** algorithms (p < 0.05)")
+            f"✅ **{baseline}** shows statistically significant improvement over **{sig_count}/{total_count}** algorithms (p < 0.05)")
     else:
         st.warning(
-            f"No statistically significant differences detected at α = 0.05")
+            f"⚠️ No statistically significant differences detected at α = 0.05")
 
 
 def display_ann_effect_size(df, metric, metric_label, baseline, scope_title):
@@ -1256,7 +1256,7 @@ def display_ann_effect_size(df, metric, metric_label, baseline, scope_title):
 
     if large_effects > 0:
         st.success(
-            f"**{baseline}** shows **large practical significance** over **{large_effects}** algorithm(s)")
+            f"✅ **{baseline}** shows **large practical significance** over **{large_effects}** algorithm(s)")
 
 
 def display_ann_win_tie_loss(df, metric, metric_label, baseline, scope_title):
@@ -1395,7 +1395,7 @@ def display_ann_ranking(df, metric, metric_label, scope_title):
     st.plotly_chart(fig, use_container_width=True)
 
     st.success(
-        f"**{ranking_df.iloc[0]['Optimizer']}** achieves the best average ranking!")
+        f"🏆 **{ranking_df.iloc[0]['Optimizer']}** achieves the best average ranking!")
 
 
 # ========================================
@@ -1405,17 +1405,17 @@ def display_ann_ranking(df, metric, metric_label, scope_title):
 st.title("COO & ANN Results Viewer")
 
 # Sidebar navigation
-st.sidebar.title("Navigation")
+st.sidebar.title("🎛️ Navigation")
 st.sidebar.markdown("### Select Section")
 app_section = st.sidebar.radio(
     "Section",
-    ["Functions", "ANN"]
+    ["🔧 Functions", "🧠 ANN"]
 )
 
 # ========================================
 # ANN SECTION
 # ========================================
-if app_section == "ANN":
+if app_section == "🧠 ANN":
     st.sidebar.markdown("---")
     st.sidebar.markdown("### ANN Pages")
     ann_page = st.sidebar.radio(
@@ -1427,13 +1427,13 @@ if app_section == "ANN":
     ann_file = detect_ann_file()
 
     if ann_file is None:
-        st.error("ANN benchmark_master.csv file not found!")
+        st.error("⚠️ ANN benchmark_master.csv file not found!")
         st.info(
             "Please ensure there is a folder starting with 'ANN_' containing 'benchmark_master.csv'")
     else:
         try:
             ann_df = load_ann_data(ann_file)
-            st.sidebar.success(f"Loaded: {len(ann_df)} records")
+            st.sidebar.success(f"✅ Loaded: {len(ann_df)} records")
 
             if ann_page == "Convergence & Parameters":
                 display_ann_convergence_page(ann_df)
@@ -1463,7 +1463,7 @@ else:
         """)
         st.stop()
 
-    st.sidebar.success(f"Using: `{BASE_DIR.name}`")
+    st.sidebar.success(f"✅ Using: `{BASE_DIR.name}`")
 
     # Load data
     with st.spinner("Loading data..."):
@@ -1509,7 +1509,7 @@ else:
     # PAGE 1 — FUNCTION VIEWER
     # ========================================
     if page == "Function Viewer":
-        st.header("Function Viewer")
+        st.header("📈 Function Viewer")
 
         available_modes = []
         if data_status["Convergence"]:
@@ -1690,14 +1690,14 @@ else:
             available_seeds_3d = sorted(viewer_data[fn][var].keys())
             seed = st.sidebar.selectbox("Seed", available_seeds_3d)
 
-            st.subheader(f"{fn} ({var}) | Seed {seed}")
+            st.subheader(f"🌄 {fn} ({var}) | Seed {seed}")
             show_html(viewer_data[fn][var][seed])
 
     # ========================================
     # PAGE 2 — OPTUNA
     # ========================================
     elif page == "Optuna Tuning":
-        st.header("Optuna Tuning Results")
+        st.header("🎯 Optuna Tuning Results")
 
         if not optuna_data:
             st.error("No Optuna data")
@@ -1715,7 +1715,7 @@ else:
         )
 
         if not opts:
-            st.warning("Select at least one optimizer")
+            st.warning("⚠️ Select at least one optimizer")
             st.stop()
 
         y_scale = st.sidebar.radio("Y-axis Scale", ["Linear", "Log"])
@@ -1757,7 +1757,7 @@ else:
     # PAGE 3 — BENCHMARK
     # ========================================
     elif page == "Benchmark":
-        st.header("Benchmark Results")
+        st.header("📊 Benchmark Results")
 
         if benchmark_df is None or len(benchmark_df) == 0:
             st.error("No benchmark data")
@@ -1784,7 +1784,7 @@ else:
         )
 
         if not opts:
-            st.warning("Select at least one optimizer")
+            st.warning("⚠️ Select at least one optimizer")
             st.stop()
 
         metric = st.sidebar.radio(
@@ -1814,7 +1814,7 @@ else:
         df_filtered = df[df["optimizer"].isin(opts)].sort_values("seed")
 
         # Line Plot
-        st.subheader(f"{metric_display[metric]} vs Seed")
+        st.subheader(f"📈 {metric_display[metric]} vs Seed")
 
         fig_line = go.Figure()
         colors = PUBLICATION_COLORS['primary']
@@ -1845,7 +1845,7 @@ else:
         st.plotly_chart(fig_line, use_container_width=True)
 
         # Box Plot
-        st.subheader(f"{metric_display[metric]} Distribution")
+        st.subheader(f"📦 {metric_display[metric]} Distribution")
 
         fig_box = go.Figure()
         colors_pub = PUBLICATION_COLORS['primary']
@@ -1878,7 +1878,7 @@ else:
         st.plotly_chart(fig_box, use_container_width=True)
 
         # Summary Statistics
-        st.subheader("Summary Statistics")
+        st.subheader("📋 Summary Statistics")
 
         summary_data = []
         for opt in opts:
@@ -1934,7 +1934,7 @@ else:
     # PAGE 4 — STATISTICAL ANALYSIS
     # ========================================
     elif page == "Statistical Analysis":
-        st.header("Statistical Analysis")
+        st.header("📊 Statistical Analysis")
 
         if benchmark_df is None or len(benchmark_df) == 0:
             st.error("No benchmark data")
@@ -1995,7 +1995,7 @@ else:
 
         # Overall Ranking
         if analysis_type == "Overall Ranking":
-            st.subheader(f"Average Rankings: {scope_title}")
+            st.subheader(f"🏆 Average Rankings: {scope_title}")
 
             rankings = calculate_rankings(filtered_df, metric)
 
@@ -2067,10 +2067,10 @@ else:
 
             best_optimizer = rankings.index[0]
             st.success(
-                f"**{best_optimizer}** achieves the best average rank of {rankings.iloc[0]:.2f}")
+                f"✅ **{best_optimizer}** achieves the best average rank of {rankings.iloc[0]:.2f}")
 
             if baseline == best_optimizer:
-                st.info(f"**{baseline}** outranks all other algorithms!")
+                st.info(f"🎉 **{baseline}** outranks all other algorithms!")
 
         # Win/Tie/Loss Analysis
         elif analysis_type == "Win/Tie/Loss Analysis":
@@ -2186,7 +2186,7 @@ else:
             - **Null Hypothesis (H₀)**: No difference between algorithms
             - **Alternative (H₁)**: Baseline performs better (one-sided test)
             - **Significance Level (α)**: 0.05
-            - **p < 0.05**: Reject H₀ → Baseline is significantly better
+            - **p < 0.05**: Reject H₀ → Baseline is significantly better ✅
             """)
 
             competitors = [
@@ -2227,7 +2227,7 @@ else:
                         f'{baseline} Mean': mean_baseline,
                         f'{competitor} Mean': mean_competitor,
                         'p-value': p_value if p_value is not None else np.nan,
-                        'Significant?': 'Yes' if p_value and p_value < 0.05 else 'No',
+                        'Significant?': '✅ Yes' if p_value and p_value < 0.05 else '❌ No',
                         "Cohen's d": effect_size,
                         'Effect Size': effect_interp
                     })
@@ -2235,9 +2235,9 @@ else:
             results_df = pd.DataFrame(results)
 
             def highlight_significant(val):
-                if val == 'Yes':
+                if val == '✅ Yes':
                     return 'background-color: #90EE90; color: black; font-weight: bold'
-                elif val == 'No':
+                elif val == '❌ No':
                     return 'background-color: #FFB6C6; color: black'
                 return 'background-color: white; color: black'
 
@@ -2281,20 +2281,20 @@ else:
 
             st.dataframe(styled_df, use_container_width=True, hide_index=True)
 
-            sig_count = sum(results_df['Significant?'] == 'Yes')
+            sig_count = sum(results_df['Significant?'] == '✅ Yes')
             total_count = len(results_df)
 
             if sig_count > 0:
                 st.success(
-                    f"**{baseline}** shows statistically significant improvement over **{sig_count}/{total_count}** algorithms (p < 0.05)")
+                    f"✅ **{baseline}** shows statistically significant improvement over **{sig_count}/{total_count}** algorithms (p < 0.05)")
             else:
                 st.warning(
-                    f"No statistically significant differences detected at α = 0.05")
+                    f"⚠️ No statistically significant differences detected at α = 0.05")
 
         # Effect Size Analysis
         elif analysis_type == "Effect Size Analysis":
             st.subheader(
-                f"Effect Size Analysis: {baseline} vs Others ({scope_title})")
+                f"📏 Effect Size Analysis: {baseline} vs Others ({scope_title})")
 
             st.markdown("""
             **Cohen's d** measures the standardized difference between two means:
@@ -2447,7 +2447,7 @@ else:
 
             if large_effects > 0:
                 st.success(
-                    f"**{baseline}** shows **large practical significance** over **{large_effects}** algorithm(s)")
+                    f"✅ **{baseline}** shows **large practical significance** over **{large_effects}** algorithm(s)")
 
 # Footer
 st.sidebar.markdown("---")
