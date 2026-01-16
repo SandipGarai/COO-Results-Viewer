@@ -587,10 +587,10 @@ def load_ann_data(csv_file):
 
 def display_ann_convergence_page(df):
     """Display ANN convergence history and optimum parameters page"""
-    st.title("🧠 ANN Hyperparameter Optimization - Convergence & Parameters")
+    st.title("ANN Hyperparameter Optimization - Convergence & Parameters")
 
     # Sidebar controls
-    st.sidebar.header("🎛️ Convergence Controls")
+    st.sidebar.header("Convergence Controls")
 
     # Get unique values
     optimizers = sorted(df['optimizer'].unique())
@@ -608,7 +608,7 @@ def display_ann_convergence_page(df):
     selected_seed = st.sidebar.selectbox("Select Seed", seed_options)
 
     st.sidebar.markdown("---")
-    st.sidebar.subheader("📊 View Mode")
+    st.sidebar.subheader("View Mode")
     view_mode = st.sidebar.radio(
         "Display Type",
         ["Convergence History", "Optimum Parameters", "Both"]
