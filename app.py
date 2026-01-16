@@ -2454,7 +2454,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown(
     """
     <small>
-    <b>COO & ANN Viewer v5.0</b><br>
+    <b>COO Results Viewer v1.0</b><br>
     Developed by  
     <a href="https://scholar.google.com/citations?user=Es-kJk4AAAAJ&hl=en" target="_blank">
         Dr. Sandip Garai
