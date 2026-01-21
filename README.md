@@ -1,4 +1,4 @@
-# COO & ANN Results Viewer
+# COO Results Viewer
 
 A comprehensive Streamlit-based visualization and statistical analysis tool for evaluating the **Canine Olfactory Optimization Algorithm (COO)** against baseline metaheuristic optimizers on benchmark functions and Artificial Neural Network (ANN) hyperparameter optimization tasks.
 
@@ -90,7 +90,7 @@ pip install -r requirements.txt
 4. **Run the application**
 
 ```bash
-streamlit run app.py
+streamlit run app_fully_fixed.py
 ```
 
 The application will open in your default browser at `http://localhost:8501`.
@@ -105,7 +105,7 @@ Place your data folders in the same directory as the application:
 
 ```
 project_root/
-├── app.py
+├── app_fully_fixed.py
 ├── requirements.txt
 ├── README.md
 ├── Functions_YYYYMMDD_HHMMSS/          # Benchmark function results
@@ -125,7 +125,7 @@ project_root/
 
 ### Navigation
 
-1. **Section Selection**: Choose between "Functions" or "ANN" in the sidebar
+1. **Section Selection**: Choose between "🔧 Functions" or "🧠 ANN" in the sidebar
 2. **Page Selection**: Navigate to specific analysis pages
 3. **Filter Controls**: Select optimizers, datasets, seeds, and metrics
 4. **View Options**: Toggle between different visualization modes
@@ -232,8 +232,8 @@ $$\text{Efficiency Score} = f_{best} \times t_{exec}$$
 
 where:
 
-- $f_{best}$ = Best objective value found
-- $t_{exec}$ = Execution time in seconds
+- f_best = Best objective value found
+- t_exec = Execution time in seconds
 
 #### For ANN Hyperparameter Optimization:
 
@@ -247,9 +247,9 @@ $$\text{Efficiency}_{evals} = \text{MSE} \times n_{evals}$$
 
 where:
 
-- $\text{MSE}$ = Mean Squared Error achieved
-- $t_{exec}$ = Execution time in seconds
-- $n_{evals}$ = Number of function evaluations
+- MSE = Mean Squared Error achieved
+- t_exec = Execution time in seconds
+- n_evals = Number of function evaluations
 
 **Interpretation:**
 
@@ -263,15 +263,15 @@ For each function-seed (or dataset-seed) combination, algorithms are ranked 1 to
 
 $$\bar{R}_j = \frac{1}{N} \sum_{i=1}^{N} r_{ij}$$
 
-where $r_{ij}$ is the rank of algorithm j on problem instance i.
+where r_ij is the rank of algorithm j on problem instance i.
 
 ### Win/Tie/Loss Analysis
 
 For baseline algorithm A vs competitor B:
 
-- **Win**: $f_A < f_B$ (baseline is better)
-- **Tie**: $f_A = f_B$ (equal performance)
-- **Loss**: $f_A > f_B$ (competitor is better)
+- **Win**: f_A < f_B (baseline is better)
+- **Tie**: f_A = f_B (equal performance)
+- **Loss**: f_A > f_B (competitor is better)
 
 **Win Rate:**
 
@@ -317,14 +317,14 @@ A novel nature-inspired metaheuristic based on the olfactory search and social b
 
 ```
 coo-ann-viewer/
-├── app.py                 # Main Streamlit application
-├── requirements.txt       # Python dependencies
+├── app_fully_fixed.py      # Main Streamlit application
+├── requirements.txt        # Python dependencies
 ├── README.md              # This documentation file
 ├── Functions_*/           # Benchmark function results (auto-detected)
 └── ANN_*/                 # ANN optimization results (auto-detected)
 ```
 
-### Key Components in `app.py`
+### Key Components in `app_fully_fixed.py`
 
 | Component                       | Description                                       |
 | ------------------------------- | ------------------------------------------------- |
@@ -378,10 +378,10 @@ If you use this tool in your research, please cite:
 
 ## Authors
 
-- [Dr. Sandip Garai](https://iiab.icar.gov.in/all-staff.php?view=025776#gsc.tab=0)
-- [Dr. Kanaka K K](https://iiab.icar.gov.in/all-staff.php?view=025817#gsc.tab=0)
+- **Dr. Sandip Garai** - [Google Scholar](https://scholar.google.com/citations?user=Es-kJk4AAAAJ&hl=en)
+- **Dr. Kanaka K K** - [Google Scholar](https://scholar.google.com/citations?user=0dQ7Sf8AAAAJ&hl=en&oi=ao)
 
-[📧 Contact](mailto:drgaraislab@gmail.com)
+📧 Contact: [drgaraislab@gmail.com](mailto:drgaraislab@gmail.com)
 
 ---
 
