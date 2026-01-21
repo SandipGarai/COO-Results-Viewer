@@ -12,7 +12,7 @@ from scipy.stats import wilcoxon
 # ========================================
 # Page config
 # ========================================
-st.set_page_config(layout="wide", page_title="COO & ANN Results Viewer")
+st.set_page_config(layout="wide", page_title="COO Results Viewer")
 
 # ========================================
 # Configuration
