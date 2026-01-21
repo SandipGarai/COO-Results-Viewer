@@ -1402,7 +1402,7 @@ def display_ann_ranking(df, metric, metric_label, scope_title):
 # Main App Navigation
 # ========================================
 
-st.title("COO & ANN Results Viewer")
+st.title("COO Results Viewer")
 
 # Sidebar navigation
 st.sidebar.title("Navigation")
